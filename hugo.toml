@@ -1,0 +1,81 @@
+baseURL = "https://dream-blog.pages.dev/"
+locale = "zh-CN"
+defaultContentLanguage = "zh"
+title = "Leonardo 的技术博客"
+description = "记录后端、Agent 工程化与日常踩坑的技术笔记"
+hasCJKLanguage = true
+timeZone = "Asia/Shanghai"
+enableRobotsTXT = true
+theme = "hugo-PaperMod"
+
+[pagination]
+  pagerSize = 8
+
+[outputs]
+  # JSON 是 PaperMod 站内搜索的数据源，删掉后 /search/ 搜不到任何文章
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  author = "Leonardo"
+  mainSections = ["posts"]
+  defaultTheme = "auto"
+  DateFormat = "2006-01-02"
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  ShowShareButtons = false
+  ShowRssButtonInSectionTermList = true
+  ShowPageNums = true
+  keywords = ["技术博客", "后端开发", "Agent", "Hugo"]
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  threshold = 0.4
+  location = 0
+  distance = 1000
+  minMatchCharLength = 1
+  keys = ["title", "permalink", "summary", "content"]
+
+[[params.socialIcons]]
+  name = "github"
+  title = "GitHub"
+  url = "https://github.com/Dream-will-come-true-oneday"
+
+[[params.socialIcons]]
+  name = "rss"
+  title = "RSS"
+  url = "/index.xml"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 20
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 30
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 40
+
+[markup]
+  [markup.highlight]
+    # 输出 CSS class 而非内联色值，代码块配色才能跟随主题深浅色切换
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
